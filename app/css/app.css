@@ -1,0 +1,17 @@
+.image-container img {
+	width: 100%;
+	height: 100%;
+}
+
+.blue-clr {
+	color: #2c3e50;
+	font-weight: bold;
+}
+
+.grey-bg {
+	background: #95a5a6;
+}
+
+.grey-bg a {
+	color: #fff;
+}
