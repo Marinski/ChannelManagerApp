@@ -1,0 +1,32 @@
+----Introduction-to-Angular-JS----------
+1. Modify the Angular Seed Project for your needs (server, folders, tests, jQuery, Bootstrap, UnderScore, etc)
+2. Add channelApp module and use it in index.html
+---------Controllers-and-Markup---------
+1. Add ChannelDetailsController and show information about a channel (using all build in directives)
+2. Add tabstrip for offers (limit to 3)
+3. Add sorting (and reverse sorting) and searching for offers using filters
+4. Write custom filter for offer status
+5. Add NewChannelController and make form in it for editing channels (two-way binding)
+6. Add validation (required, pattern (/\d\d/\d\d/\d\d\d\d/)), pass form by name to controller and check validity
+7. Add classes for validation (input.ng-invalid.ng-dirty) and disable the save button, add pattern for image extension
+--------------Services------------------
+1. Implement custom service to return the channel details
+2. Use http service to fetch data from server (using callbacks and log)
+3. Transform the callback to promise
+4. Use resource service to fetch data from server (add the library dependancy)
+5. Use resource service to save data to server
+6. Show anchorScroll service + location service
+7. Show in docs the other service
+----------------Routes------------------
+1. Create index.html and partials, add ngRoute and transfer all views
+2. Put id into route and get channel details by id with routeParams service
+3. Add home page for listing all available channels (using resource query)
+4. Change redirrection to use $location service in cancel
+5. Show target="_self"
+6. Show HTML5 paths
+-----------------Directives-------------
+1. Add search directive for the home page
+2. Show invalidity of HTML and invalid tag
+3. Show isolated scope
+4. Create directive with templateUrl for the home page (show isolated scope with transfer of model)
+5. Make the voting as directive
