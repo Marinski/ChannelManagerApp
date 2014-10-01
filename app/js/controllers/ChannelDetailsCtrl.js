@@ -22,24 +22,36 @@ channelApp.controller('ChannelDetailsCtrl', function ChannelDetailsCtrl($scope){
 			image: '/img/offer/offer-1.jpg',
 			views: 4320,
 			sales: 25,
+			rating: 0,
 			price: 42,
 			status: 1
 		}, {
 			id: 2,
 			name: 'Full Board',
-			image: '/img/offer/offer-1.jpg',
+			image: '/img/offer/offer-2.jpg',
 			views: 1342,
 			sales: 0,
+			rating: 0,
 			price: 55,
 			status: 2
 		}, {
 			id: 3,
 			name: 'Weekend Half Board',
-			image: '/img/offer/offer-1.jpg',
+			image: '/img/offer/offer-3.jpg',
 			views: 3320,
 			sales: 17,
+			rating: 0,
 			price: 45,
 			status: 3
+		}, {
+			id: 4,
+			name: 'Weekend Half',
+			image: '/img/offer/offer-4.jpg',
+			views: 2120,
+			sales: 11,
+			rating: 30,
+			price: 425,
+			status: 4
 		}]
 	};
 
@@ -59,6 +71,11 @@ channelApp.controller('ChannelDetailsCtrl', function ChannelDetailsCtrl($scope){
 	$scope.hideOfferRecords = true;
 	$scope.showOfferRecordsText = 'View';
 	$scope.showAndHideRecords = showAndHideRecords;
+
+	$scope.upVoteRating = upVoteRating;
+	$scope.downVoteRating = downVoteRating;
+
+	$scope.sort = 'rating';
 
 	// $scope.boldFontCss = {
 	// 	fontWeight: 'bold'
@@ -94,6 +111,16 @@ channelApp.controller('ChannelDetailsCtrl', function ChannelDetailsCtrl($scope){
 		else {
 			$scope.showOfferRecordsText = 'View';
 			$scope.hideOfferRecords = true;
+		}
+	}
+
+	function upVoteRating(offer) {
+		offer.rating++;
+	}
+
+	function downVoteRating(offer) {
+		if (offer.rating > 0) {
+			offer.rating--;
 		}
 	}
 
