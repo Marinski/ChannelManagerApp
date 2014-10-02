@@ -68,10 +68,24 @@
 					<strong>Offers: </strong>{{channel.additionalInfo.offers}} offers / {{channel.additionalInfo.sales}} sales
 					<button class="btn btn-sm btn-info pull-right" ng-click="showAndHideRecords()">{{ showOfferRecordsText }}</button>
 				</p>
-				<div ng-hide="hideOfferRecords">
+				<div class="container" ng-hide="hideOfferRecords">
+					<div class="row">
+						Sort:
+						<select ng-model="sort">
+							<option value="id" selected="=selected">Default</option>
+							<option value="name">Name</option>
+							<option value="views">Views</option>
+							<option value="sales">Sales</option>
+							<option value="-rating">Rating</option>
+							<option value="price">Price</option>
+						</select>
+						<div class="pull-right">Search:
+							<input type="text" ng-model="search" />
+						</div>
+					</div>
 					<ul class="nav nav-tabs">
-						<li ng-repeat="offer in channel.offers | limitTo: 3 | orderBy: sort">
-							<a href="#offer-{{ offer.id }}" data-toggle="tab" ng-class="{active: isActive('/offer-{{ offer.id }}')}">{{ offer.name }}</a>
+						<li ng-repeat="offer in channel.offers | limitTo: 3 | orderBy: sort | filter: search">
+							<a href="#offer-{{ offer.id }}" data-toggle="tab">{{ offer.name }} ({{ offer.rating }})</a>
 						</li>
 						<li>
 							<a href="#">See all...</a>
@@ -135,5 +149,7 @@
 <!-- Controllers -->
 <script src="js/controllers/PageCtrl.js"></script>
 <script src="js/controllers/ChannelDetailsCtrl.js"></script>
+<!-- Filters -->
+<script src="js/filters/status.js"></script>
 </body>
 </html>
