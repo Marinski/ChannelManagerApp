@@ -21,7 +21,7 @@
     </div>
     <div id="navbar-main" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-		<li><a href="#">Add Channel</a></li>
+		<li><a href="edit-channel.html">Add Channel</a></li>
       </ul>
     </div>
   </div>
@@ -83,6 +83,7 @@
 							<input type="text" ng-model="search" />
 						</div>
 					</div>
+					<br />
 					<ul class="nav nav-tabs">
 						<li ng-repeat="offer in channel.offers | limitTo: 3 | orderBy: sort | filter: search">
 							<a href="#offer-{{ offer.id }}" data-toggle="tab">{{ offer.name }} ({{ offer.rating }})</a>
@@ -112,6 +113,9 @@
 										</p>
 										<p>
 											<strong>Price: </strong>{{ offer.price | number: 2 }} <small>BGN</small>
+										</p>
+										<p>
+											<strong>Status: </strong>{{ offer.status | status }}
 										</p>
 									</div>
 									<div class="col-md-6 image-container">

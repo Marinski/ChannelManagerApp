@@ -44,7 +44,7 @@ channelApp.controller('ChannelDetailsCtrl', function ChannelDetailsCtrl($scope){
 			price: 45,
 			status: 3
 		}, {
-			id: 4,
+			id: 2,
 			name: 'Weekend Half',
 			image: '/img/offer/offer-4.jpg',
 			views: 2120,
@@ -75,7 +75,7 @@ channelApp.controller('ChannelDetailsCtrl', function ChannelDetailsCtrl($scope){
 	$scope.upVoteRating = upVoteRating;
 	$scope.downVoteRating = downVoteRating;
 
-	$scope.sort = 'rating';
+	$scope.sort = 'id';
 
 	// $scope.boldFontCss = {
 	// 	fontWeight: 'bold'
