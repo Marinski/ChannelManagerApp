@@ -1,0 +1,124 @@
+<div class="row" ng-controller="EditChannelCtrl">
+	<div class="col-md-6">
+		<h1>Edit channel</h1>
+		<form class="form-horizontal" name="newChannelForm">
+			  <fieldset>
+			  	<legend>Main info</legend>
+				  <div class="form-group">
+				    <label class="col-lg-2 control-label" for="name">Name</label>
+				    <div class="col-lg-10">
+				      <input type="text" required="required" placeholder="Name" id="name" class="form-control form-validation" ng-model="channel.name" />
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-lg-2 control-label" for="image">Image</label>
+				    <div class="col-lg-10">
+				      <input type="text" required="required" ng-pattern="/\.(gif|jpg|jpeg|tiff|png)$/i" placeholder="Image URL" id="image" class="form-control form-validation" ng-model="channel.image" />
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-lg-2 control-label" for="location">Location</label>
+				    <div class="col-lg-10">
+				      <input type="text" required="required" placeholder="Location" id="location" class="form-control" ng-model="channel.additionalInfo.location" />
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-lg-2 control-label" for="joined">Joined</label>
+				    <div class="col-lg-10">
+		            <p class="input-group">
+				      
+				      	<input type="text" required="required" ng-pattern="/\d\d/\d\d/\d\d\d\d/" placeholder="Date Joined (dd/m/yyyy)" id="joined" class="form-control form-validation" ng-model="channel.joined" />
+
+						<span class="input-group-btn">
+							<button datepicker id="date" type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+					</p>
+				    </div>
+				  </div>
+
+	<!-- 			<div ng-controller="DatepickerCtrl">
+				    <label class="col-lg-2 control-label" for="joined">Joined</label>
+					<input type="text" placeholder="{{dt | date:'fullDate' }}" value="{{dt | date:'fullDate' }}" id="joined" class="form-control form-validation" ng-model="channel.joined" />
+				    <div class="row">
+				        <div class="col-md-6">
+				            <p class="input-group">
+				              <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+				              <span class="input-group-btn">
+				                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				              </span>
+				            </p>
+				        </div>
+				    </div>
+				    <div class="row">
+				        <div class="col-md-6">
+				            <label>Format:</label> <select class="form-control" ng-model="format" ng-options="f for f in formats"><option></option></select>
+				        </div>
+				    </div>
+
+				    <hr />
+				    <button type="button" class="btn btn-sm btn-info" ng-click="today()">Today</button>
+				    <button type="button" class="btn btn-sm btn-default" ng-click="dt = '2009-08-24'">2009-08-24</button>
+				    <button type="button" class="btn btn-sm btn-danger" ng-click="clear()">Clear</button>
+				    <button type="button" class="btn btn-sm btn-default" ng-click="toggleMin()" tooltip="After today restriction">Min date</button>
+				</div> -->
+
+			  </fieldset>
+			  <fielnset>
+			  	<legend>
+			  		Audience
+			  	</legend>
+				  <div class="form-group">
+				    <label class="col-lg-2 control-label" for="audience">Female</label>
+				    <div class="col-lg-10">
+				      <input type="text" placeholder="Female" id="audience" class="form-control" ng-model="channel.additionalInfo.female" />
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-lg-2 control-label" for="audience">Male</label>
+				    <div class="col-lg-10">
+				      <input type="text" placeholder="Male" id="audience" class="form-control" ng-model="channel.additionalInfo.male" />
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-lg-2 control-label" for="audience">Total</label>
+				    <div class="col-lg-10">
+				      <input type="text" placeholder="Audience" id="audience" class="form-control" ng-model="channel.additionalInfo.audience" />
+				    </div>
+				  </div>
+			  </fielnset>
+			  <fieldset>
+			  	  <legend>
+					Optional info
+				  </legend>
+				  <div class="form-group">
+				    <label class="col-lg-2 control-label" for="audience">Target</label>
+				    <div class="col-lg-10">
+						<select  name="Female" id="female" class="form-control" multiple="" ng-model="channel.additionalInfo.targetAudience">
+							<option value="Female 18-24" selected="=selected">F 18-24</option>
+							<option value="Male 18-24" selected="=selected">M 18-24</option>
+							<option value="Female 25-30">F 25-30</option>
+							<option value="Male 25-30">M 25-30</option>
+							<option value="Female 31-39">F 31-39</option>
+							<option value="Male 31-39">M 31-39</option>
+							<option value="Female 40-49">F 40-49</option>
+							<option value="Male 40-49">M 40-49</option>
+							<option value="Female 50-59">F 50-59</option>
+							<option value="Male 50-59">M 50-59</option>
+							<option value="Female over 60">F over 60</option>
+							<option value="Male over 60">M over 60</option>
+						</select>
+				    </div>
+				  </div>
+			 </fieldset>
+			 <div class="form-group">
+			    <div class="pull-right">
+			      <button class="btn btn-default" ng-disabled="newChannelForm.$invalid" ng-click="saveChannel(channel, newChannelForm)">Save</button>
+			      <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+			    </div>
+			 </div>
+		</form>
+	</div>
+	<div class="col-md-6 image-container">
+		<img src="" alt="" ng-src="{{channel.image}}" />
+	</div>
+</div>

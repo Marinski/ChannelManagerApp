@@ -1,0 +1,15 @@
+<div class="row" ng-controller="ListChannelsCtrl">
+	<div class="col-md-4 pull-right">
+		<div search-channels search="search" />	
+	</div>
+	<h1>Channels</h1>
+	<div ng-repeat="channel in channels">
+		<div class="col-md-4 text-center">
+			<a href="#/channels/{{ channel.id }}" class="no-underline"><h2>{{ channel.name }}</h2>
+				<div class="image-container">
+					<img ng-src="{{ channel.image }}" alt="" src="" />
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

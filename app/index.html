@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/app.css" />
 </head>
-<body ng-app="channelApp" ng-controller="PageCtrl">
+<body ng-app="channelApp" ng-controller="PageCtrl" ng-cloak>
 
 <div class="navbar navbar-default">
   <div class="container">
@@ -21,17 +21,17 @@
     </div>
     <div id="navbar-main" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-		<li><a href="edit-channel.html">Add Channel</a></li>
+		<li><a href="#/channels">Channels</a></li>
+		<li><a href="#/edit">Edit Channel</a></li>
+		<li><a href="#/login">Login</a></li>
       </ul>
     </div>
   </div>
 </div>
 
 <div class="container">
-	<div class="row">
-		<div class="col-md-6">
-			Hello!
-		</div>
+	<div class="jumbotron" ng-view>
+		
 	</div>
 </div>
 
@@ -39,15 +39,32 @@
 	<hr />
 	<small>
 		Author: {{ author }}. Date: {{ date.year }}/{{ date.month }}/{{ date.day }}
-
 	</small>
 </footer>
 
 <script src="lib/jquery-1.11.1.min.js"></script>
 <script src="lib/bootstrap.min.js"></script>
+<!-- AngularJS Resources -->
 <script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular/angular-resource.min.js"></script>
+<script src="lib/angular/angular-route.min.js"></script>
 <script src="js/app.js"></script>
 <!-- Controllers -->
 <script src="js/controllers/PageCtrl.js"></script>
+<script src="js/controllers/ChannelDetailsCtrl.js"></script>
+<script src="js/controllers/EditChannelCtrl.js"></script>
+<script src="js/controllers/ListChannelsCtrl.js"></script>
+<!-- <script src="js/controllers/DatepickerCtrl.js"></script> -->
+<!-- Filters -->
+<script src="js/filters/status.js"></script>
+<!-- Services -->
+<script src="js/services/channelData.js"></script>
+<!-- Directives -->
+<script src="js/directives/searchChannel.js"></script>
+<script src="js/directives/datepicker.js"></script>
+<!-- Modules -->
+<script src="js/modules/ui-bootstrap-tpls-0.11.2.min.js"></script>
+<!-- Add-ons -->
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
 </body>
 </html>

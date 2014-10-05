@@ -3,6 +3,14 @@
 	height: 100%;
 }
 
+a.no-underline {
+	text-decoration: none;
+}
+
+a.no-underline:hover {
+	color: #2c3e50;
+}
+
 .blue-clr {
 	color: #2c3e50;
 	font-weight: bold;
@@ -14,4 +22,12 @@
 
 .grey-bg a {
 	color: #fff;
+}
+
+input.form-validation.ng-dirty.ng-invalid {
+	background: pink;
+}
+
+input.form-validation.ng-dirty.ng-valid {
+	background: greenyellow;
 }
